@@ -5,7 +5,7 @@ from pathlib import Path
 base = Path(__file__).parent.parent
 
 sys.path.append(str(base / "dev"))
-# from CI_250608.pkgutil.ntwheel.ntwheel.dev.ntwheel.core.noxfile import build
+
 from ntwheel import NTWheel, EnvModel # type: ignore
 
 def ntexample_workspace():
@@ -48,4 +48,25 @@ def ntdocs_workspace():
 
     runner.run()
 
-ntdocs_workspace()
+def ntlog_workspace():
+    ntlog_dir = base/"prod/ntlog"
+
+    runner = NTWheel(
+        session_name="build_test",
+        env=EnvModel(
+            python_version="3.11",
+            pkgs_req_dir=str(ntlog_dir/"offline_packages/ubuntu"),
+            pkg_dir=str(ntlog_dir/"dev"),
+            build_dir=str(ntlog_dir/"prod/build"),
+            test_files={
+                str(ntlog_dir / "prod/usage/test.py"): []
+            },
+            release_dir = str(ntlog_dir/"prod/release"),
+        ),
+        envdir_path=str(ntlog_dir/"prod/build/.nox"),
+    )
+
+    runner.run()
+
+# ntdocs_workspace()
+ntlog_workspace()

@@ -1,0 +1,9 @@
+build==1.2.2.post1
+dotenv==0.9.9
+ntlog==1.0.0.2506222328
+packaging==24.2
+pip==25.0.1
+pyproject_hooks==1.2.0
+python-dotenv==1.1.0
+setuptools==76.0.0
+wheel==0.45.1

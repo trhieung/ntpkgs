@@ -16,7 +16,7 @@
 from setuptools import setup, find_packages
 from datetime import datetime
 
-PROJECT_NAME = "ntproxy"
+PROJECT_NAME = "ntlog"
 
 date_version = datetime.now().strftime("%y%m%d%H%M")
 VERSION = f"1.0.0.{date_version}"
