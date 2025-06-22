@@ -195,4 +195,5 @@ cython_debug/
 
 # My edit
 **/build/
+**/__pycache__/
 # **/offline_packages/
